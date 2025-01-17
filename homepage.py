@@ -22,7 +22,7 @@ with tab1:
         #disgusted
         st.image("https://img.freepik.com/premium-photo/disgusted-man-gesturing-stop-avoiding-something-white-background_116547-20121.jpg")
         st.header("NEUTRAL")
-        st.test("emotion less face")
+        st.text("emotion less face")
     with col2: 
         #happy
         st.image("https://t3.ftcdn.net/jpg/06/70/88/30/360_F_670883093_z8u6KtjZ38hAPSGTudNzz5LBB3o75aDD.jpg", width = 450)
