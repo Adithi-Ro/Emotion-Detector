@@ -76,7 +76,7 @@ with tab2:
                 st.write("Oooooooh, what happened? i am curious.")
             elif str(res[0].names[label[0]].title()) == 'Fearful':
                 st.write("Are you in danger? these are some famous help hotlines")
-            else str(res[0].names[label[0]].title()) == 'Disgusted':
+            else:
                 st.write("Why, just purely why")
 with tab3:
     st.header("An owl")
