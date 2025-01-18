@@ -1,4 +1,12 @@
 import streamlit as st
+from ultralytics import YOLO
+from PIL import Image
+
+#Load the model
+@st.cache_resource
+def models():
+    mod = YOLO('best.pt')
+    return mod
 
 st.title("EMOTION DETECTION")
 st.subheader("FIND OUT WHAT EVERYONE IS TRULY FEELING")
@@ -42,15 +50,21 @@ with tab1:
 
 with tab2:
     uploaded_files = st.file_uploader(
-    "Choose a CSV file", accept_multiple_files=True
-)
-for uploaded_file in uploaded_files:
-    bytes_data = uploaded_file.read()
-    st.write("filename:", uploaded_file.name)
-    st.write(bytes_data)
-
-    st.header("YOU ARE FEELING")
-
+    "Choose a CSV file", type = ['jpg','png','jpeg'])
+    analyze = st.button("Submit")
+    if analyze:
+        if uploaded_files is not None:
+            img = Image.open(uploaded_files)
+            st.markdown('Image Visualization')
+            st.image(img)
+            model = models()
+            res = model.predict(img)
+            label = res[0].probs.top5
+            conf = res[0].probs.top5conf
+            conf = conf.tolist()
+            st.write('Detected: ' + str(res[0].names[label[0]].title())) 
+            st.write('Confidence level: ' + str(conf[0]*100))
+            
 with tab3:
     st.header("An owl")
     st.image("https://static.streamlit.io/examples/owl.jpg", width=200)
