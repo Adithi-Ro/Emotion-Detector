@@ -74,7 +74,7 @@ with tab2:
                 st.write("peace is a very good think, enjoy it while it's there ")
             elif str(res[0].names[label[0]].title()) == 'Surprised':
                 st.write("Oooooooh, what happened? i am curious.")
-            elif str(res[0].names[label[0]].title()) == 'Fearful':
+            else str(res[0].names[label[0]].title()) == 'Fearful':
                 st.write("Are you in danger? these are some famous help hotlines")
             elif str(res[0].names[label[0]].title()) == 'Disgusted':
                 st.write("Why, just purely why")
