@@ -64,7 +64,20 @@ with tab2:
             conf = conf.tolist()
             st.write('Detected: ' + str(res[0].names[label[0]].title())) 
             st.write('Confidence level: ' + str(conf[0]*100))
-            
+            if str(res[0].names[label[0]].title()) == 'Happy':
+                st.write("you are feeling happy, i am happy for you")
+            elif str(res[0].names[label[0]].title()) == 'Sad':
+                st.write("hope you feel better soon")
+            elif str(res[0].names[label[0]].title()) == 'Angry':
+                st.write("lets do some breathing techniques to make you feel more calm")
+            elif str(res[0].names[label[0]].title()) == 'Neutral':
+                st.write("peace is a very good think, enjoy it while it's there ")
+            elif str(res[0].names[label[0]].title()) == 'Surprised':
+                st.write("Oooooooh, what happened? i am curious.")
+            elif str(res[0].names[label[0]].title()) == 'Fearful':
+                st.write("Are you in danger? these are some famous help hotlines")
+            elif str(res[0].names[label[0]].title()) == 'Disgusted':
+                st.write("Why, just purely why")
 with tab3:
     st.header("An owl")
     st.image("https://static.streamlit.io/examples/owl.jpg", width=200)
